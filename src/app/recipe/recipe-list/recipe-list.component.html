@@ -1,22 +1,11 @@
 <div>
+  <h2>Lista de Recetas</h2>
   <div>
-    @if (selected) {
-    <div *ngIf="selected">
-      <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
-    </div>
-    }
     <table>
-      <thead>
-        <tr>
-          <th>Receta</th>
-          <th>Imagen</th>
-          <th>Porciones</th>
-          <th>Tiempo</th>
-        </tr>
-      </thead>
+
       <tbody>
-        @for(recipe of recipes; track recipe.id){
-        <tr (click)="onSelect(recipe)">
+        @for(recipe of recipies; track recipe.id){
+        <tr [routerLink]="['/recipe', recipe.id]" class = "clickable-row">
           <td>{{ recipe.nombre }}</td>
           <td>
             <img
