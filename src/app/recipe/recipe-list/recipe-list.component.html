@@ -1,24 +1,29 @@
-<div>
-  <h2>Lista de Recetas</h2>
-  <div>
-    <table>
 
+    <div class="container-fluid mb-4" style="background-color:rgb(199, 168, 231)f;">
       <tbody>
-        @for(recipe of recipies; track recipe.id){
-        <tr [routerLink]="['/recipe', recipe.id]" class = "clickable-row">
-          <td>{{ recipe.nombre }}</td>
-          <td>
-            <img
-              class="recipe-img"
-              [src]="recipe.imagen"
-              alt="{{ recipe.imagen }}"
-            />
-          </td>
-          <td>{{ recipe.porciones }}</td>
-          <td>{{ recipe.tiempo_minutos }} min</td>
-        </tr>
+        <div class="row">
+          @for(recipe of recipies; track recipe.id){
+          <div class="col">
+            <div class="card mb-3 p-3" style="width: 340px;">
+            
+                <img 
+                  class="d-block mx-auto img-fluid"
+                  [src]="recipe.imagen"
+                  alt="{{ recipe.imagen }}"
+                />
+                <h3 style="font-weight: bold">{{ recipe.nombre }}</h3>
+                <ul>
+                  @for(etiqueta of recipe.etiquetas; track etiqueta){
+                  <li>{{etiqueta}}</li>
+                  }
+                </ul>
+                
+                <td><strong>Porciones: </strong>{{recipe.porciones}}</td>
+                <td><strong># Ingredientes: </strong>{{recipe.ingredientes.length}}</td>
+              <div class="text-left" ><button [routerLink]="['/recipe', recipe.id]" class = "btn btn-secondary mt-3" style="background-color: cornflowerblue;">Ver la receta</button></div>
+            </div>
+          </div>
         }
+        </div>
       </tbody>
-    </table>
-  </div>
-</div>
+    </div>

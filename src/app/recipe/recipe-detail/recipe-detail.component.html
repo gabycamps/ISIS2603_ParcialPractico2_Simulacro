@@ -1,34 +1,49 @@
-<div class="container mt-4">
+<div class="d-flex justify-content-center mt-4" style="background-color:rgb(199, 168, 231)f;">
+  <div class="card p-4" style="max-width: 1100px; width: 100%; ">
 
-    @if (recipe) {
-      <div class="row">
-        <div class="col-md-6">
-          <h2>{{ recipe.nombre }}</h2>
-          <img
-            class="recipe-detail-img"
-            [src]="recipe.imagen"
-            alt="{{ recipe.imagen }}"
-          />
-          <div class="text-left" ><button class="btn btn-secondary mt-3" [routerLink]="['/recipe']">Regresar</button></div>
-          
-        </div>
-        <div class="col-md-6">
-          <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
-          <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
-          <h3>Ingredientes</h3>
-          <app-ingredient-list
-            [ingredients]="recipe.ingredientes"
-          ></app-ingredient-list>
+      @if (recipe) {
+        <div class="row">
+          <div class="col-md-6">
+            <h2>{{ recipe.nombre }}</h2>
+            <img
+              class="recipe-detail-img"
+              [src]="recipe.imagen"
+              alt="{{ recipe.imagen }}"
+            />
+            <div class="text-left" ><button class="btn btn-secondary mt-3" [routerLink]="['/recipe']" style="background-color: cornflowerblue;">Regresar</button></div>
+            
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col">
+                <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
+                <p><strong>Dificultad:</strong> {{ recipe.dificultad }}</p>
+              </div>
+              <div class="col">
+                <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
+                <p><strong>Tipo:</strong> {{ recipe.tipo }} </p>
+              </div>
+            </div>
+            <hr>
+            
+            <h3>Ingredientes</h3>
 
-          <h3>Pasos</h3>
-          <ol>
-            @for(step of recipe.pasos; track step){
-            <li>
-              {{ step }}
-            </li>
-            }
-          </ol>
+            <td><strong>Ingrediente más usado: </strong>{{ingredienteMasUsado(recipe)}}</td>
+            <app-ingredient-list
+              [ingredients]="recipe.ingredientes"
+            ></app-ingredient-list>
+
+            <hr>
+            <h3>Pasos</h3>
+            <ol>
+              @for(step of recipe.pasos; track step){
+              <li>
+                {{ step }}
+              </li>
+              }
+            </ol>
+          </div>
         </div>
-      </div>
-  }
+    }
+  </div>
 </div>
