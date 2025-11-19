@@ -20,7 +20,7 @@
                 
                 <td><strong>Porciones: </strong>{{recipe.porciones}}</td>
                 <td><strong># Ingredientes: </strong>{{recipe.ingredientes.length}}</td>
-              <div class="text-left" ><button [routerLink]="['/recipe', recipe.id]" class = "btn btn-secondary mt-3" style="background-color: cornflowerblue;">Ver la receta</button></div>
+              <div class="text-left" ><button [routerLink]="['/recipe', recipe.id]" type="button" class = "btn btn-outline-primary mt-3">Ver la receta</button></div>
             </div>
           </div>
         }
