@@ -1,12 +1,12 @@
 
-    <div class="container-fluid mb-4" style="background-color:rgb(199, 168, 231)f;">
+    <div class="container-fluid mb-4">
       <tbody>
         <div class="row">
           @for(recipe of recipies; track recipe.id){
           <div class="col">
-            <div class="card mb-3 p-3" style="width: 340px;">
+            <div class="card mb-3 p-3" style="width: 340px; height: 600px; ">
             
-                <img 
+                <img
                   class="d-block mx-auto img-fluid"
                   [src]="recipe.imagen"
                   alt="{{ recipe.imagen }}"
